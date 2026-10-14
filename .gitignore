@@ -1,0 +1,6 @@
+/sipvoice
+/dist/
+*.env
+.env
+config.yaml
+calls/

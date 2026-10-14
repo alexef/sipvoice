@@ -1,0 +1,33 @@
+# sipvoice configuration. Copy to ~/.config/sipvoice/config.yaml (or pass --config).
+# ${VAR} is replaced with environment variable VAR. Secrets can also be left
+# empty here and supplied via SIP_USERNAME, SIP_PASSWORD and XAI_API_KEY.
+
+sip:
+  domain: sip.example.net        # SIP domain of your provider
+  # proxy: sip.example.net       # outbound proxy host, defaults to domain
+  # port: 5060
+  # local_port: 0                # 0 = random UDP port
+  username: ${SIP_USERNAME}
+  # auth_username: ""            # digest username if different from username
+  password: ${SIP_PASSWORD}
+  # plus_replacement: "00"       # dial +CC... as 00CC... if your provider needs it
+
+xai:
+  api_key: ${XAI_API_KEY}
+  # realtime_url: wss://api.x.ai/v1/realtime
+  # voice_model: grok-voice-latest
+  # voice: eve
+  # summary_model: grok-4-fast-non-reasoning
+
+owner_name: "Jane Doe"           # the assistant introduces itself as Jane Doe's AI assistant
+
+# Only these numbers can be called. Empty list = no calls possible.
+allowlist:
+  - "+1 555 0100"
+
+limits:
+  max_call_seconds: 300
+  ring_seconds: 45
+
+# listen: 127.0.0.1:8765          # local HTTP API (keep it on loopback)
+# calls_dir: ~/.local/share/sipvoice/calls
